@@ -8,6 +8,7 @@ public class OccuranceMaxElement {
             for (int j = i+1; j < arr.length; j++) {
                 if (arr[j]==arr[j+1]){
                     count++;
+                    count++;
                 }
             }
         }
