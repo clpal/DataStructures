@@ -1,6 +1,7 @@
 package com.kotlin.example;
 
 public class SwitchCaseExample {
+
     public static void main(String[] args) {
         int i=6;
         switch (i){
