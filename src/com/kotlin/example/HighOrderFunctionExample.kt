@@ -1,28 +1,30 @@
 package com.kotlin.example
 
-val sampleFun = {
-    println("hello")
-}
-val AdditionWithReturn = { a: Int, b: Int -> Int
-    val c = a + b
-    println(c)
+/*A higher-order function is a function that takes another function as parameter and/or returns a function.*/
+fun calculate(x: Int, y: Int, operation: (Int, Int) -> Int): Int {
+    return operation(x, y)
 }
 
-val AdditionWithNoReturn={a:Int ,b:Int ->
-     a+b
+/*fun sum(x:Int,y:Int):Int{
+   return x+y
+}*/
+//fun sum(x:Int,y:Int):Int= x+y
+fun sum(x: Int, y: Int) = x + y
 
-}
-var sub = { a: Int, b: Int -> (a - b)
-    println(a-b)
-}
-var mul = { a: Int, b: Int -> val c= a * b
-println(c)}
-fun main(args: Array<String>) {
-    sampleFun()
-    AdditionWithReturn(2, 3)
-    print( AdditionWithNoReturn(2, 4))
-    sub(5, 2)
-    mul(20, 3)
+fun main() {
+    val sumResult = calculate(4, 5, ::sum)
+    val mulResult = calculate(4, 5) { a, b -> a * b }
+    println("mulResult $mulResult")
+    println("sumResult $sumResult")
 
+
+    val func = operation()
+    println("squareResult ${func(2)}")
 }
 
+// Returning Functions
+fun operation(): (Int) -> Int {
+    return ::square
+}
+
+fun square(x: Int): Int = x * x
